@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package order;
+option go_package = "github.com/maxamed-cali/go-microservices/proto;order";
+
+service OrderService {
+  rpc GetOrder(OrderRequest) returns (OrderResponse);
+}
+
+message OrderRequest {
+  string id = 1;
+}
+
+message OrderResponse {
+  string id = 1;
+  string status = 2;
+}

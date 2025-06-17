@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package category;
+option go_package = "github.com/maxamed-cali/go-microservices/proto;category";
+
+service CategoryService {
+  rpc GetCategory(CategoryRequest) returns (CategoryResponse);
+}
+
+message CategoryRequest {
+  string id = 1;
+}
+
+message CategoryResponse {
+  string id = 1;
+  string title = 2;
+}
