@@ -4,7 +4,7 @@
 // 	protoc        v6.31.1
 // source: proto/order.proto
 
-package order
+package proto
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -128,7 +128,7 @@ const file_proto_order_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\tR\x06status2E\n" +
 	"\fOrderService\x125\n" +
-	"\bGetOrder\x12\x13.order.OrderRequest\x1a\x14.order.OrderResponseB6Z4github.com/maxamed-cali/go-microservices/proto;orderb\x06proto3"
+	"\bGetOrder\x12\x13.order.OrderRequest\x1a\x14.order.OrderResponseBBZ@https://github.com/maxamed-cali/go-microservices/proto/gen/protob\x06proto3"
 
 var (
 	file_proto_order_proto_rawDescOnce sync.Once

@@ -128,7 +128,7 @@ const file_proto_user_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name2A\n" +
 	"\vUserService\x122\n" +
-	"\aGetUser\x12\x12.proto.UserRequest\x1a\x13.proto.UserResponseB8Z6github.com/maxamed‑cali/go-microservices/proto;protob\x06proto3"
+	"\aGetUser\x12\x12.proto.UserRequest\x1a\x13.proto.UserResponseBBZ@https://github.com/maxamed-cali/go-microservices/proto/gen/protob\x06proto3"
 
 var (
 	file_proto_user_proto_rawDescOnce sync.Once

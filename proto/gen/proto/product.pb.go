@@ -4,7 +4,7 @@
 // 	protoc        v6.31.1
 // source: proto/product.proto
 
-package product
+package proto
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -129,7 +129,7 @@ const file_proto_product_proto_rawDesc = "" +
 	"\x04name\x18\x02 \x01(\tR\x04name2Q\n" +
 	"\x0eProductService\x12?\n" +
 	"\n" +
-	"GetProduct\x12\x17.product.ProductRequest\x1a\x18.product.ProductResponseB8Z6github.com/maxamed-cali/go-microservices/proto;productb\x06proto3"
+	"GetProduct\x12\x17.product.ProductRequest\x1a\x18.product.ProductResponseBBZ@https://github.com/maxamed-cali/go-microservices/proto/gen/protob\x06proto3"
 
 var (
 	file_proto_product_proto_rawDescOnce sync.Once

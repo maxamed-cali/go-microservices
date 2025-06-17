@@ -4,7 +4,7 @@
 // 	protoc        v6.31.1
 // source: proto/common.proto
 
-package common
+package proto
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -118,7 +118,7 @@ const file_proto_common_proto_rawDesc = "" +
 	"\x05Empty\"5\n" +
 	"\x05Error\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\tR\x04code\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessageB7Z5github.com/maxamed-cali/go-microservices/proto;commonb\x06proto3"
+	"\amessage\x18\x02 \x01(\tR\amessageBBZ@https://github.com/maxamed-cali/go-microservices/proto/gen/protob\x06proto3"
 
 var (
 	file_proto_common_proto_rawDescOnce sync.Once

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package common;
 
-option go_package = "github.com/maxamed-cali/go-microservices/proto;common";
+option go_package = "https://github.com/maxamed-cali/go-microservices/proto/gen/proto";
 
 // A basic shared message you can extend later
 message Empty {}

@@ -4,7 +4,7 @@
 // - protoc             v6.31.1
 // source: proto/order.proto
 
-package order
+package proto
 
 import (
 	context "context"

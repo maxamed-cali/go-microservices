@@ -1,4 +1,4 @@
-module api-gateway
+module github.com/maxamed-cali/go-microservices/api-gateway
 
 go 1.24.4
 
@@ -37,3 +37,5 @@ require (
 	google.golang.org/protobuf v1.36.6 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+

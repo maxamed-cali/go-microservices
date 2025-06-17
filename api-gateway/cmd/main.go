@@ -20,7 +20,7 @@ func main() {
 	}
 	defer conn.Close()
 
-	userClient := pb.NewUserServiceClient(conn)
+	userClient := pb.NewCategoryServiceClient(conn)
 
 	r := gin.New()
 	r.Use(gin.Recovery()) // handles panics gracefully

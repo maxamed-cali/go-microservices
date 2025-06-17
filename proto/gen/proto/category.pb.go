@@ -4,7 +4,7 @@
 // 	protoc        v6.31.1
 // source: proto/category.proto
 
-package category
+package proto
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -128,7 +128,7 @@ const file_proto_category_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title2W\n" +
 	"\x0fCategoryService\x12D\n" +
-	"\vGetCategory\x12\x19.category.CategoryRequest\x1a\x1a.category.CategoryResponseB9Z7github.com/maxamed-cali/go-microservices/proto;categoryb\x06proto3"
+	"\vGetCategory\x12\x19.category.CategoryRequest\x1a\x1a.category.CategoryResponseBBZ@https://github.com/maxamed-cali/go-microservices/proto/gen/protob\x06proto3"
 
 var (
 	file_proto_category_proto_rawDescOnce sync.Once
