@@ -2,9 +2,11 @@ module github.com/maxamed-cali/go-microservices/api-gateway
 
 go 1.24.4
 
+replace github.com/maxamed-cali/go-microservices/proto => ../proto
+
 require (
 	github.com/gin-gonic/gin v1.10.1
-	github.com/maxamed-cali/go-microservices v0.0.0-20250617160544-2273467bf33b
+	github.com/maxamed-cali/go-microservices/proto v0.0.0
 	google.golang.org/grpc v1.73.0
 )
 
@@ -37,5 +39,3 @@ require (
 	google.golang.org/protobuf v1.36.6 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-

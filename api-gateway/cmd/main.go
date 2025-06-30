@@ -1,66 +1,24 @@
 package main
 
 import (
-	"context"
-	"log"
-	"net/http"
-	"time"
+    "log"
 
-	"github.com/gin-gonic/gin"
-	pb "github.com/maxamed-cali/go-microservices/proto/gen/proto" // update to match your actual module path
-	"google.golang.org/grpc"
+    "github.com/gin-gonic/gin"
+    "github.com/maxamed-cali/go-microservices/api-gateway/config"
+    "github.com/maxamed-cali/go-microservices/api-gateway/internal/routes"
+    "github.com/maxamed-cali/go-microservices/api-gateway/internal/service"
 )
 
-
 func main() {
-	// Connect to user service over gRPC
-	conn, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
-	if err != nil {
-		log.Fatalf("could not connect to user service: %v", err)
-	}
-	defer conn.Close()
+    cfg := config.LoadConfig()
 
-	userClient := pb.NewCategoryServiceClient(conn)
+    service.InitUserClient(cfg.UserSvcAddr)
 
-	r := gin.New()
-	r.Use(gin.Recovery()) // handles panics gracefully
+    r := gin.New()
+    r.Use(gin.Recovery())
 
-	// Health check
-	r.GET("/healthz", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"status": "ok"})
-	})
+    routes.SetupRoutes(r)
 
-	// User endpoint (REST → gRPC)
-	r.GET("/users/:id", func(c *gin.Context) {
-		id := c.Param("id")
-
-		// Set timeout for gRPC call
-		ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
-		defer cancel()
-
-		var resp *pb.UserResponse
-		var err error
-
-		for i := 0; i < 3; i++ { // retry up to 3 times
-			resp, err = userClient.GetUser(ctx, &pb.UserRequest{Id: id})
-			if err == nil {
-				break
-			}
-			log.Printf("gRPC call failed (attempt %d): %v", i+1, err)
-			time.Sleep(100 * time.Millisecond)
-		}
-
-		if err != nil {
-			c.JSON(http.StatusServiceUnavailable, gin.H{"error": "user service unavailable"})
-			return
-		}
-
-		c.JSON(http.StatusOK, gin.H{
-			"id":   resp.Id,
-			"name": resp.Name,
-		})
-	})
-
-	log.Println("API Gateway is running on http://localhost:8080")
-	r.Run(":8080")
+    log.Printf("API Gateway running at http://localhost%s", cfg.Port)
+    r.Run(cfg.Port)
 }
