@@ -1,9 +1,11 @@
-module user
+module github.com/maxamed-cali/go-microservices/user
 
 go 1.24.4
 
+replace github.com/maxamed-cali/go-microservices/proto => ../proto
+
 require (
-	github.com/maxamed-cali/go-microservices v0.0.0-20250617171420-622f9563d3bc
+	github.com/maxamed-cali/go-microservices/proto v0.0.0-20250617171420-622f9563d3bc
 	google.golang.org/grpc v1.73.0
 )
 
