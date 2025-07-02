@@ -1,33 +1,28 @@
 package main
 
 import (
-    "context"
     "log"
     "net"
 
-    pb "github.com/maxamed-cali/go-microservices/proto/gen/proto"
     "google.golang.org/grpc"
+    pb "github.com/maxamed-cali/go-microservices/proto/gen/proto"
+
+    "github.com/maxamed-cali/go-microservices/user/config"
+    "github.com/maxamed-cali/go-microservices/user/internal/db"
+    "github.com/maxamed-cali/go-microservices/user/internal/handler"
 )
 
-type server struct {
-    pb.UnimplementedUserServiceServer
-}
-
-func (s *server) GetUser(ctx context.Context, req *pb.UserRequest) (*pb.UserResponse, error) {
-    return &pb.UserResponse{
-        Id:   req.Id,
-        Name: "Test User " + req.Id,
-    }, nil
-}
-
 func main() {
+    cfg := config.LoadConfig()
+    db.InitDB(cfg)
+
     lis, err := net.Listen("tcp", ":50051")
     if err != nil {
         log.Fatalf("failed to listen: %v", err)
     }
 
     grpcServer := grpc.NewServer()
-    pb.RegisterUserServiceServer(grpcServer, &server{})
+    pb.RegisterUserServiceServer(grpcServer, &handler.UserHandler{})
 
     log.Println("UserService running on :50051")
     if err := grpcServer.Serve(lis); err != nil {

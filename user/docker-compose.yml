@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  user-service:
+    build:
+      context: ..                      # 👈 Access to both user/ and proto/
+      dockerfile: user/Dockerfile
+    ports:
+      - "50051:50051"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: user_service
